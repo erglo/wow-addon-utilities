@@ -59,14 +59,6 @@ The contents of each file match their names:
 
 ----
 
-## 👷 Todo
-
-- Contribution guidelines
-- Code of conduct
-- Sponsoring
-
-----
-
 ## Disclaimer
 
 > World of Warcraft© and Blizzard Entertainment© are all trademarks or registered trademarks of Blizzard Entertainment in the United States and/or other countries. These terms and all related materials, logos, and images are copyright © Blizzard Entertainment.
