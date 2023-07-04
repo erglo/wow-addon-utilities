@@ -35,11 +35,11 @@
 
 local AddonID, ns = ...
 
-local util = ns.util or {}
-ns.util = util
+local utils = ns.utils or {}
+ns.utils = utils
 
 local LocalAchievementUtil = {}
-util.achieve = LocalAchievementUtil
+utils.achieve = LocalAchievementUtil
 
 ----- Constants ----------------------------------------------------------------
 
@@ -80,14 +80,14 @@ local GetAchievementNumCriteria = GetAchievementNumCriteria
 --
 function LocalAchievementUtil.GetWrappedAchievementInfo(achievementID, raw)
 	-- Default return values for GetAchievementInfo(): 
-	-- 1:id, 2:name, 3:points, 4:completed, 5:month, 6:day, 7:year,
+	-- 1:achievementID, 2:name, 3:points, 4:completed, 5:month, 6:day, 7:year,
 	-- 8:description, 9:flags, 10:icon, 11:rewardText, 12:isGuild,
 	-- 13:wasEarnedByMe, 14:earnedBy, 15:isStatistic
 	local data = SafePack(GetAchievementInfo(achievementID))
 	if not data then return end
 	if raw then return SafeUnpack(data) end
 	local achievementInfo = {
-		id = data[1], ---@type number  The achievement identification number.
+		achievementID = data[1], ---@type number  The achievement identification number.
 		name = data[2], ---@type string  The name of the achievement.
 		points = data[3], ---@type number  Points awarded for completing this achievement.
 		completed = data[4], ---@type boolean  Returns true/false depending if you've completed this achievement on any character.
@@ -116,14 +116,14 @@ end
 --
 function LocalAchievementUtil.GetWrappedAchievementCriteriaInfo(achievementID, criteriaIndex, raw)
 	-- Default return values for GetAchievementCriteriaInfo():
-	-- 1:criteriaString, 2:criteriaType, 3:completed, 4:quantity, 5:reqQuantity,
-	-- 6:charName, 7:flags, 8:assetID, 9:quantityString, 10:criteriaID,
-	-- 11:eligible, [12:duration], [13:elapsed]
+	-- 1:name, 2:criteriaType, 3:completed, 4:quantity, 5:reqQuantity, 6:charName,
+	-- 7:flags, 8:assetID, 9:quantityString, 10:criteriaID, 11:eligible,
+	-- [12:duration], [13:elapsed]
 	local data = SafePack(GetAchievementCriteriaInfo(achievementID, criteriaIndex))
 	if not data then return end
 	if raw then return SafeUnpack(data) end
 	local criteriaInfo = {
-		criteriaString = data[1], ---@type  string  The name of the criteria.
+		name = data[1], ---@type  string  The name of the criteria.
 		criteriaType = data[2], ---@type  number  Criteria type; specifies the meaning of the assetID.
 		completed = data[3], ---@type  boolean  True if you've completed this criteria; false otherwise.
 		quantity = data[4], ---@type  number  Quantity requirement imposed by some criteriaType.
@@ -161,7 +161,7 @@ function LocalAchievementUtil.GetWrappedAchievementNumCriteria(achievementID, in
 	-- Count completed criteria
 	local numCompleted = 0
 	for criteriaIndex=1, numCriteria do
-		local criteriaInfo = SafePack(LocalAchievementUtil.GetWrappedAchievementCriteriaInfo(achievementID, criteriaIndex))
+		local criteriaInfo = LocalAchievementUtil.GetWrappedAchievementCriteriaInfo(achievementID, criteriaIndex)
 		if (criteriaInfo and criteriaInfo.completed) then
 			numCompleted = numCompleted + 1
 		end
@@ -192,7 +192,7 @@ end
 function LocalAchievementUtil.IsAssetCriteriaCompleted(achievementID, assetID)
 	local numCriteria = GetAchievementNumCriteria(achievementID)
 	for criteriaIndex=1, numCriteria do
-		local criteriaInfo = SafePack(LocalAchievementUtil.GetWrappedAchievementCriteriaInfo(achievementID, criteriaIndex))
+		local criteriaInfo = LocalAchievementUtil.GetWrappedAchievementCriteriaInfo(achievementID, criteriaIndex)
 		-- The assetID can be anything depending on the criteriaType, eg. a creatureID, questID, etc.
 		if (criteriaInfo and criteriaInfo.assetID == assetID) then
 			return criteriaInfo.completed
