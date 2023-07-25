@@ -106,24 +106,24 @@ function LocalAchievementUtil.GetWrappedAchievementInfo(achievementID, raw)
 	return achievementInfo
 end
 
--- A key-value wrapper for `GetWrappedAchievementCriteriaInfo`.
+-- A key-value wrapper for `GetAchievementCriteriaInfo`.
 ---@param achievementID number  The achievement identification number
 ---@param criteriaIndex number  The position index of the criteria
----@param raw boolean|nil  Return non-wrapped data directly from `GetWrappedAchievementCriteriaInfo` instead
+---@param raw boolean|nil  Return non-wrapped data directly from `GetAchievementCriteriaInfo` instead
 ---@return table|nil criteriaInfo
 --
 -- REF.: <https://wowpedia.fandom.com/wiki/API_GetAchievementCriteriaInfo>
 --
 function LocalAchievementUtil.GetWrappedAchievementCriteriaInfo(achievementID, criteriaIndex, raw)
 	-- Default return values for GetAchievementCriteriaInfo():
-	-- 1:name, 2:criteriaType, 3:completed, 4:quantity, 5:reqQuantity, 6:charName,
+	-- 1:criteriaString, 2:criteriaType, 3:completed, 4:quantity, 5:reqQuantity, 6:charName,
 	-- 7:flags, 8:assetID, 9:quantityString, 10:criteriaID, 11:eligible,
 	-- [12:duration], [13:elapsed]
 	local data = SafePack(GetAchievementCriteriaInfo(achievementID, criteriaIndex))
 	if not data then return end
 	if raw then return SafeUnpack(data) end
 	local criteriaInfo = {
-		name = data[1], ---@type  string  The name of the criteria.
+		criteriaString = data[1], ---@type  string  The name of the criteria.
 		criteriaType = data[2], ---@type  number  Criteria type; specifies the meaning of the assetID.
 		completed = data[3], ---@type  boolean  True if you've completed this criteria; false otherwise.
 		quantity = data[4], ---@type  number  Quantity requirement imposed by some criteriaType.
