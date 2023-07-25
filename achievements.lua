@@ -76,7 +76,7 @@ local GetAchievementNumCriteria = GetAchievementNumCriteria
 ---@param raw boolean|nil  Return non-wrapped data directly from `GetAchievementInfo` instead
 ---@return table|nil achievementInfo
 --
---> REF.: <https://wowpedia.fandom.com/wiki/API_GetAchievementInfo>
+-- REF.: <https://wowpedia.fandom.com/wiki/API_GetAchievementInfo>
 --
 function LocalAchievementUtil.GetWrappedAchievementInfo(achievementID, raw)
 	-- Default return values for GetAchievementInfo(): 
@@ -112,7 +112,7 @@ end
 ---@param raw boolean|nil  Return non-wrapped data directly from `GetWrappedAchievementCriteriaInfo` instead
 ---@return table|nil criteriaInfo
 --
---> REF.: <https://wowpedia.fandom.com/wiki/API_GetAchievementCriteriaInfo>
+-- REF.: <https://wowpedia.fandom.com/wiki/API_GetAchievementCriteriaInfo>
 --
 function LocalAchievementUtil.GetWrappedAchievementCriteriaInfo(achievementID, criteriaIndex, raw)
 	-- Default return values for GetAchievementCriteriaInfo():
@@ -147,7 +147,7 @@ end
 ---@return number numCriteria
 ---@return number|nil numCompleted
 --
---> REF.: <https://wowpedia.fandom.com/wiki/API_GetAchievementNumCriteria>
+-- REF.: <https://wowpedia.fandom.com/wiki/API_GetAchievementNumCriteria>
 --
 function LocalAchievementUtil.GetWrappedAchievementNumCriteria(achievementID, includeCompleted)
 	local numCriteria = GetAchievementNumCriteria(achievementID)
@@ -168,6 +168,19 @@ function LocalAchievementUtil.GetWrappedAchievementNumCriteria(achievementID, in
 	end
 
 	return numCriteria, numCompleted
+end
+
+-- Add the achievement icon in front of the hyperlink
+---@param achievementInfo any
+---@return unknown
+--
+-- REF.: <https://wowpedia.fandom.com/wiki/API_GetAchievementLink>  
+-- REF.: <https://wowwiki-archive.fandom.com/wiki/UI_escape_sequences#Links>
+--
+function LocalAchievementUtil.GetAchievementLinkWithIcon(achievementInfo)
+	local ACHIEVEMENT_NAME_FORMAT = "|T%d:16:16:0:0|t %s"
+    local hyperLink = GetAchievementLink(achievementInfo.achievementID)
+    return ACHIEVEMENT_NAME_FORMAT:format(achievementInfo.icon, hyperLink)
 end
 
 ----- Conditions ---------------------------------------------------------------
