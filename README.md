@@ -29,9 +29,8 @@ Copy the below snippet into your `.pkmeta`/`pkmeta.yml` file:
 
 ```yaml
 externals:
-  utils:  # name of the folder in your procject where you keep the utility files
-    url: https://github.com/erglo/wow-addon-utilities.git
-    tag: latest
+    utils: https://github.com/erglo/wow-addon-utilities.git
+    # 'utils' is the name of the folder in your project where you keep the utility files
 ```
 
 ### 🔗 Include as a git submodule
