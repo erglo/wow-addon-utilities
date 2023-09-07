@@ -3,7 +3,7 @@
 A collection of functions useful for World of Warcraft addon developers; feel free to use these in your own addon projects.  
 Each LUA file of this repository is dedicated to a specific WoW topic and contains functions and constants related to that topic. See [Repository contents](#repository-contents) for an overview.
 
-**Note:** _This is not an addon nor an Ace3 library (yet)!_
+**Note:** _This is not an addon nor an LibStub library (yet)!_
 &nbsp;  
 
 ## Usage
@@ -12,29 +12,29 @@ There are multiple ways to include the utility files into your project. Here are
 
 ### 📦 Download and copy
 
-1. Download the whole package or a single file of this repo.
-2. Extract ZIP file or copy single file in a folder inside your project directory.
-3. Add a reference to it in your addon's TOC file.
-4. Use in your LUA files, eg. as follows:
+1. Download the whole package or just the file you need from this repo.
+2. Extract ZIP file or copy single file into a folder inside your project's directory.
+3. Add a reference to the file(s) in your addon's TOC file.
+5. Use in your LUA files, eg. as follows:
 
     ```lua
     local AddonID, ns = ...
-    -- 'ns.util' holds all utilities
-    -- 'ns.util.achieve' holds all achievement related utilities, etc.
+    -- 'ns.utils' holds all utilities
+    -- 'ns.utils.achieve' holds all achievement related utilities, etc.
     ```
 
 ### 📝 Add to PKMETA file
 
-Copy the below snippet to your `.pkmeta`/`pkmeta.yml` file:
+Copy the below snippet into your `.pkmeta`/`pkmeta.yml` file:
 
-```Yaml
+```yaml
 externals:
-  utils:  # path/to-your-utils
-    url: https://github.com/erglo/wow-addon-utilities
+  utils:  # name of the folder in your procject where you keep the utility files
+    url: https://github.com/erglo/wow-addon-utilities.git
     tag: latest
 ```
 
-### 🔗 Use as a git submodule
+### 🔗 Include as a git submodule
 
 ```bash
 # Links the submodule with folder "dir_name"
@@ -55,7 +55,7 @@ git clone https://github.com/erglo/wow-addon-utilities.git
 
 The name of each file matches its topic:
 
-- **achievements.lua** (`ns.util.achieve`)
+- **achievements.lua** (`ns.utils.achieve`)
   - `.GetWrappedAchievementInfo(achievementID, raw)` &rarr; _table|nil_  
     A key-value wrapper for [GetAchievementInfo()](https://wowpedia.fandom.com/wiki/API_GetAchievementInfo).
   - `.GetWrappedAchievementCriteriaInfo(achievementID, criteriaIndex, raw)` &rarr; _table|nil_  
