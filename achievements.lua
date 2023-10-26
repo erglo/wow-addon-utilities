@@ -244,6 +244,31 @@ end
 -- GetAchievementInfo(12028)
 -- GetAchievementCriteriaInfo(12028, 3)
 
-----------------------------------------------------------------------------------> TODO - Future ideas
+----- Categories ---------------------------------------------------------------
 
--- C_QuestLog.GetZoneStoryInfo(uiMapID) : achievementID, storyMapID
+-- Return a list of categoryInfos of the main categories.
+---@return table mainCategoryInfoList
+--
+-- [API_GetCategoryList](https://warcraft.wiki.gg/wiki/API_GetCategoryList)  
+-- [API_GetCategoryInfo](https://warcraft.wiki.gg/wiki/API_GetCategoryInfo)
+--
+function LocalAchievementUtil.GetMainCategoryInfoList()
+	local categoryIDs = GetCategoryList()
+	local mainCategoryInfoList = {}
+
+	for i, cID in ipairs(categoryIDs) do
+		local cName, cParentID, cFlags = GetCategoryInfo(cID)
+		if (cParentID == -1) then
+			local categoryInfo = {
+				categoryIndex = i,  ---@type number  The index number from `GetCategoryList()`.
+				categoryID = cID,   ---@type number  The category identification number.
+				categoryName = cName,  ---@type string  The name of the category.
+				parentCategoryID = cParentID,  ---@type number  The identification number of the category's parent.
+				flags = cFlags,   ---@type number  The category flags.
+			}
+			tInsert(mainCategoryInfoList, categoryInfo)
+		end
+	end
+
+	return mainCategoryInfoList
+end
