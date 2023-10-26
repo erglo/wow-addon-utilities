@@ -68,6 +68,8 @@ The name of each file matches its topic:
     Check if the criteria of given assetID for given achievementID has been completed.
   - `.GetAchievementCriteriaInfoList(achievementID)` &rarr; _array_  
     Retrieve all criteriaInfo for given achievement.
+  - `.GetMainCategoryInfoList()` &rarr; _array_  
+    Return a list of categoryInfos of the main categories.
 - **currencies.lua**
   - TODO - Add currency handler
 - **worldmap.lua**
