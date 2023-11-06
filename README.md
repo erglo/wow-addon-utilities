@@ -71,6 +71,18 @@ The name of each file matches its topic:
     Return a list of categoryInfos of the main categories.
 - **currencies.lua**
   - TODO - Add currency handler
+- **handynotes.lua** (`ns.utils.handynotes`)  
+⚠️**Requires:** [HandyNotes](https://www.curseforge.com/wow/addons/handynotes "Visit CurseForge.com")
+  - `:GetCoordFromXY(x, y)` &rarr; _number_  
+    Get the HandyNotes coordinates from given x/y position.
+  - `:GetXYFromCoord(coord)` &rarr; _number, number_  
+    Get the x/y position from given HandyNotes coordinates.
+  - `:SetMapCoordUserWaypoint(mapID, coord)`  
+    Set a user waypoint on given map at given HandyNotes coordinates.
+  - `:GetUserWaypointMapCoord()` &rarr; _number|nil, number|nil_  
+    Get the uiMapID and the HandyNotes coordinates from a user waypoint.
+  - `:GetPlayerMapCoord()` &rarr; _number|nil, number|nil_  
+    Get the uiMapID and the HandyNotes coordinates from the player's current position.
 - **worldmap.lua**
   - TODO - Add world map handler
 
