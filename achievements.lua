@@ -3,7 +3,7 @@
 --
 -- by erglo <erglo.coder+WAU@gmail.com>
 --
--- Copyright (C) 2023  Erwin D. Glockner (aka erglo)
+-- Copyright (C) 2023-2024  Erwin D. Glockner (aka erglo)
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -20,8 +20,8 @@
 --
 -- Further reading:
 -- ================
--- REF.: <FrameXML/AchievementUtil.lua>
--- REF.: <FrameXML/Blizzard_APIDocumentationGenerated/AchievementInfoDocumentation.lua>
+-- REF.: <https://www.townlong-yak.com/framexml/live/AchievementUtil.lua>
+-- REF.: <https://www.townlong-yak.com/framexml/live/Blizzard_APIDocumentationGenerated/AchievementInfoDocumentation.lua>
 -- REF.: <https://wowpedia.fandom.com/wiki/World_of_Warcraft_API#Achievements>
 -- REF.: <https://wowpedia.fandom.com/wiki/API_GetAchievementNumCriteria>
 -- REF.: <https://wowpedia.fandom.com/wiki/API_GetAchievementCriteriaInfo>
@@ -76,7 +76,7 @@ local GetAchievementNumCriteria = GetAchievementNumCriteria
 ---@param raw boolean|nil  Return non-wrapped data directly from `GetAchievementInfo` instead
 ---@return table|nil achievementInfo
 --
--- REF.: <https://wowpedia.fandom.com/wiki/API_GetAchievementInfo>
+-- REF.: [Wowpedia - API_GetAchievementInfo](https://wowpedia.fandom.com/wiki/API_GetAchievementInfo)
 --
 function LocalAchievementUtil.GetWrappedAchievementInfo(achievementID, raw)
 	-- Default return values for GetAchievementInfo(): 
@@ -112,7 +112,7 @@ end
 ---@param raw boolean|nil  Return non-wrapped data directly from `GetAchievementCriteriaInfo` instead
 ---@return table|nil criteriaInfo
 --
--- REF.: <https://wowpedia.fandom.com/wiki/API_GetAchievementCriteriaInfo>
+-- REF.: [Wowpedia - API_GetAchievementCriteriaInfo](https://wowpedia.fandom.com/wiki/API_GetAchievementCriteriaInfo)
 --
 function LocalAchievementUtil.GetWrappedAchievementCriteriaInfo(achievementID, criteriaIndex, raw)
 	-- Default return values for GetAchievementCriteriaInfo():
@@ -147,7 +147,7 @@ end
 ---@return number numCriteria
 ---@return number|nil numCompleted
 --
--- REF.: <https://wowpedia.fandom.com/wiki/API_GetAchievementNumCriteria>
+-- REF.: [Wowpedia - API_GetAchievementNumCriteria](https://wowpedia.fandom.com/wiki/API_GetAchievementNumCriteria)
 --
 function LocalAchievementUtil.GetWrappedAchievementNumCriteria(achievementID, includeCompleted)
 	local numCriteria = GetAchievementNumCriteria(achievementID)
@@ -170,12 +170,12 @@ function LocalAchievementUtil.GetWrappedAchievementNumCriteria(achievementID, in
 	return numCriteria, numCompleted
 end
 
--- Add the achievement icon in front of the hyperlink
+-- Generate an achievement hyperlink with an icon in front of it for given wrapped achievement.
 ---@param achievementInfo any
----@return unknown
+---@return string achievementLink
 --
--- REF.: <https://wowpedia.fandom.com/wiki/API_GetAchievementLink>  
--- REF.: <https://wowwiki-archive.fandom.com/wiki/UI_escape_sequences#Links>
+-- REF.: [Wowpedia - API_GetAchievementLink](https://wowpedia.fandom.com/wiki/API_GetAchievementLink)<br>
+-- REF.: [WoWWiki - UI_escape_sequences#Links](https://wowwiki-archive.fandom.com/wiki/UI_escape_sequences#Links)
 --
 function LocalAchievementUtil.GetAchievementLinkWithIcon(achievementInfo)
 	local ACHIEVEMENT_NAME_FORMAT = "|T%d:16:16:0:0|t %s"
@@ -197,7 +197,7 @@ function LocalAchievementUtil.IsAchievementCompleted(achievementID)
 	return select(4, GetAchievementInfo(achievementID))
 end
 
--- Check if the criteria of given assetID for given achievementID has been completed.
+-- Check if the criteria of given asset has been completed for given achievement.
 ---@param achievementID number  The achievement identification number
 ---@param assetID number  Criteria data whose meaning depends on the criteriaType
 ---@return boolean isCompleted 
@@ -216,7 +216,7 @@ end
 
 ----- Data ---------------------------------------------------------------------
 
--- Retrieve all criteriaInfo for given achievement.
+-- Retrieve all wrapped criteriaInfo for given achievement.
 ---@param achievementID number  The achievement identification number
 ---@return table criteriaInfoList
 --
@@ -230,27 +230,13 @@ function LocalAchievementUtil.GetAchievementCriteriaInfoList(achievementID)
 	return criteriaInfoList
 end
 
--- function Test_ListAchievementAssetIDs(achievementID)
--- 	local aID, aName = GetAchievementInfo(achievementID)
--- 	print(aID, aName)
--- 	local numCriteria = LocalAchievementUtil.GetAchievementNumCriteria(achievementID)
--- 	for i=1, numCriteria do
--- 		local criteriaInfo = SafePack(LocalAchievementUtil.GetAchievementCriteriaInfo(achievementID, i))
--- 		local cName, cType, isCompleted, criteriaAssetID, criteriaID = criteriaInfo[1], criteriaInfo[2], criteriaInfo[3], criteriaInfo[8], criteriaInfo[10]
--- 		print(i, criteriaAssetID, criteriaID, "isCompleted:", isCompleted, "-->", cName)
--- 	end
--- end
--- Test_ListAchievementAssetIDs(13284)
--- GetAchievementInfo(12028)
--- GetAchievementCriteriaInfo(12028, 3)
+----- Categories -----
 
------ Categories ---------------------------------------------------------------
-
--- Return a list of categoryInfos of the main categories.
+-- Retrieve a list of wrapped categoryInfo of the main achievement categories.
 ---@return table mainCategoryInfoList
 --
--- [API_GetCategoryList](https://warcraft.wiki.gg/wiki/API_GetCategoryList)  
--- [API_GetCategoryInfo](https://warcraft.wiki.gg/wiki/API_GetCategoryInfo)
+-- REF.: [WarCraft.wiki.gg - API_GetCategoryList](https://warcraft.wiki.gg/wiki/API_GetCategoryList)<br>
+-- REF.: [WarCraft.wiki.gg - API_GetCategoryInfo](https://warcraft.wiki.gg/wiki/API_GetCategoryInfo)
 --
 function LocalAchievementUtil.GetMainCategoryInfoList()
 	local categoryIDs = GetCategoryList()
