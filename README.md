@@ -75,16 +75,18 @@ The name of each file matches its topic:
   - TODO - Add currency handler
 - **handynotes.lua** (`ns.utils.handynotes`)  
 ⚠️**Requires:** [HandyNotes](https://www.curseforge.com/wow/addons/handynotes "Visit CurseForge.com")
-  - `:GetCoordFromXY(x, y)` &rarr; _number_  
-    Get the HandyNotes coordinates from given x/y position.
-  - `:GetXYFromCoord(coord)` &rarr; _number, number_  
-    Get the x/y position from given HandyNotes coordinates.
-  - `:SetMapCoordUserWaypoint(mapID, coord)`  
-    Set a user waypoint on given map at given HandyNotes coordinates.
-  - `:GetUserWaypointMapCoord()` &rarr; _number|nil, number|nil_  
-    Get the uiMapID and the HandyNotes coordinates from a user waypoint.
-  - `:GetPlayerMapCoord()` &rarr; _number|nil, number|nil_  
+  + `:GetCoordFromXY(x, y)` &rarr; `coord`: _number_  
+    Get the HandyNotes coordinates from given x/y position numbers.
+  + `:GetXYFromCoord(coord)` &rarr; `x`: _number_, `y`: _number_  
+    Get the x/y position from given HandyNotes coordinates number.
+  + `:GetPlayerMapCoord()` &rarr; `mapID`: _number|nil_, `coord`: _number|nil_  
     Get the uiMapID and the HandyNotes coordinates from the player's current position.
+  + `:SetMapCoordUserWaypoint(mapID, coord, chatNotifyOnError)` &rarr; `success`: _boolean_  
+    Set a user waypoint on given map at given HandyNotes coordinates. The optional "chatNotifyOnError" informs the user additionally in chat that given map doesn't support waypoints (on screen by default).
+  + `:GetUserWaypointMapCoord()` &rarr; `mapID`: _number|nil_, `coord`: _number|nil_  
+    Get the uiMapID and the HandyNotes coordinates from a user waypoint.
+  + :new: `:ClearUserWaypoint()`  
+    Remove a previously set user waypoint.
 - **worldmap.lua**
   - TODO - Add world map handler
 
