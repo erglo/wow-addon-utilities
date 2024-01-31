@@ -55,20 +55,22 @@ git clone https://github.com/erglo/wow-addon-utilities.git
 The name of each file matches its topic:
 
 - **achievements.lua** (`ns.utils.achieve`)
-  - `.GetWrappedAchievementInfo(achievementID, raw)` &rarr; _table|nil_  
+  + `.GetWrappedAchievementInfo(achievementID, raw)` &rarr; `achievementInfo`: _table|nil_  
     A key-value wrapper for [GetAchievementInfo()](https://wowpedia.fandom.com/wiki/API_GetAchievementInfo).
-  - `.GetWrappedAchievementCriteriaInfo(achievementID, criteriaIndex, raw)` &rarr; _table|nil_  
+  + `.GetWrappedAchievementCriteriaInfo(achievementID, criteriaIndex, raw)` &rarr; `criteriaInfo`: _table|nil_  
     A key-value wrapper for [GetWrappedAchievementCriteriaInfo()](https://wowpedia.fandom.com/wiki/API_GetAchievementCriteriaInfo).
-  - `.GetWrappedAchievementNumCriteria(achievementID, includeCompleted)` &rarr; _number, number|nil_  
+  + `.GetWrappedAchievementNumCriteria(achievementID, includeCompleted)` &rarr; `numCriteria`: _number_, `numCompleted`: _number|nil_  
     Retrieve the total and optionally the completed criteria number for given achievement.
-  - `.IsAchievementCompleted(achievementID)` &rarr; _boolean_  
+  + :new: `.GetAchievementLinkWithIcon(achievementInfo)` &rarr; `achievementLink`: _string_  
+    Generate an achievement hyperlink with an icon in front of it for given wrapped achievement.
+  + `.IsAchievementCompleted(achievementID)` &rarr; `isCompleted`: _boolean_  
     Check whether given achievement has been completed.
-  - `.IsAssetCriteriaCompleted(achievementID, assetID)` &rarr; _boolean_  
-    Check if the criteria of given assetID for given achievementID has been completed.
-  - `.GetAchievementCriteriaInfoList(achievementID)` &rarr; _array_  
-    Retrieve all criteriaInfo for given achievement.
-  - `.GetMainCategoryInfoList()` &rarr; _array_  
-    Return a list of categoryInfos of the main categories.
+  + `.IsAssetCriteriaCompleted(achievementID, assetID)` &rarr; `isCompleted`: _boolean_  
+    Check if the criteria of given asset has been completed for given achievement.
+  + `.GetAchievementCriteriaInfoList(achievementID)` &rarr; `criteriaInfoList`: _table_  
+    Retrieve all wrapped criteriaInfo for given achievement.
+  + `.GetMainCategoryInfoList()` &rarr; `mainCategoryInfoList`: _table_  
+    Retrieve a list of wrapped categoryInfo of the main achievement categories.
 - **currencies.lua**
   - TODO - Add currency handler
 - **handynotes.lua** (`ns.utils.handynotes`)  
