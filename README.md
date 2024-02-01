@@ -167,3 +167,5 @@ git clone https://github.com/erglo/wow-addon-utilities.git
 ## Disclaimer
 
 > World of Warcraft© and Blizzard Entertainment© are all trademarks or registered trademarks of Blizzard Entertainment in the United States and/or other countries. These terms and all related materials, logos, and images are copyright © Blizzard Entertainment.
+
+The tools used to create this utility collection reflect my own preferences and are not endorsed nor payed by anybody. A little credit to the developers for their great job is the least we can do.
