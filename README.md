@@ -135,6 +135,35 @@ git clone https://github.com/erglo/wow-addon-utilities.git
 
 ----
 
+### Tools Used
+
+- Microsoft's [Visual Studio Code](https://code.visualstudio.com) with ...
+  + Sumneko's [Lua Language Server](https://github.com/LuaLS/lua-language-server) extension
+  + Ketho's [World of Warcraft API](https://github.com/Ketho/vscode-wow-api) extension
+  + Stanzilla's [World of Warcraft TOC Language Support](https://github.com/Stanzilla/vscode-wow-toc) extension
+  + David Anson's [Markdown linting and style checking](https://github.com/DavidAnson/vscode-markdownlint) extension
+- Version control management with [Git](https://git-scm.com) + [GitHub](https://github.com/)actions-recent-changelog)
+- In-game development tools (addons):
+  + [BugGrabber](https://www.curseforge.com/wow/addons/bug-grabber),
+    [BugSack](https://www.curseforge.com/wow/addons/bugsack),
+    [idTip](https://www.curseforge.com/wow/addons/idtip),
+    [TextureViewer](https://www.curseforge.com/wow/addons/textureviewer),
+    [WoWLua](https://www.curseforge.com/wow/addons/wowlua).  
+- Game libraries:
+  + [HandyNotes](https://www.curseforge.com/wow/addons/handynotes),
+    [LibQTip-1.0](https://www.curseforge.com/wow/addons/libqtip-1-0).
+
+### References
+
+- Townlong Yak's [FrameXML archive](https://www.townlong-yak.com/framexml/live)
+- WoWpedia's [World of Warcraft API](https://wowpedia.fandom.com/wiki/World_of_Warcraft_API)
+- [Wowhead.com](https://www.wowhead.com)
+- Matt Cone's ["The Markdown Guide"](https://www.markdownguide.org) &rarr; *(Buy his [book](https://www.markdownguide.org/book)!)*
+- [The Git Book](https://git-scm.com/book)
+- [Documentation](https://code.visualstudio.com/docs) for Visual Studio Code
+
+----
+
 ## Disclaimer
 
 > World of Warcraft© and Blizzard Entertainment© are all trademarks or registered trademarks of Blizzard Entertainment in the United States and/or other countries. These terms and all related materials, logos, and images are copyright © Blizzard Entertainment.
