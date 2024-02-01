@@ -4,11 +4,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+* Created `libqtip.lua`, a collection of wrapper for the LibQTip-1.0 library.
+
+### Changed
+
+* Updated `CHANGELOG.md` with recent changes.
+* Updated `README.md` with API for `libqtip.lua`.
+
+### Fixed
+
+* Corrected some spelling errors in `README.md`.
+
 ## [v0.4.0] - 2024-02-01
 
 ### Added
 
-* Created `worldmap.lua`.
+* Created `worldmap.lua`, a collection of utilities for the World Map.
 
 ### Changed
 
@@ -38,7 +53,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-* Created `handynotes.lua`.
+* Created `handynotes.lua`, a collection of utilities for HandyNotes plugins.
 
 ### Changed
 
@@ -86,7 +101,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-* Created `achievements.lua`.
+* Created `achievements.lua`, a collection of utilities handling achievements.
 
 ### Changed
 
