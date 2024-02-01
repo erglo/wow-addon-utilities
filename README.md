@@ -1,14 +1,14 @@
-# wow-addon-utilities
+# WoW Addon Utilities
 
-A collection of functions useful for World of Warcraft addon developers; feel free to use these in your own addon projects.  
-Each LUA file of this repository is dedicated to a specific WoW topic and contains methods and constants related to that topic. See [Repository contents](#repository-contents) for an overview.
+A collection of functions used in my World of Warcraft© addons which hopefully might be useful for other addon developers as well; *feel free to use these in your own addon projects*.  
+Each LUA file of this repository is dedicated to a specific WoW topic and contains methods and constants related to that topic. See [Repository contents](#repository-contents) for a complete overview.
 
-**Note:** _This is not an addon nor an LibStub library (yet)!_
+**Note:** _This is not an addon nor a LibStub library (yet)!_
 &nbsp;  
 
 ## Usage
 
-There are multiple ways to include the utility files into your project. Here are some examples:
+There are multiple ways to include these utility files into your project. Here are some examples:
 
 ### 📦 Download and copy
 
@@ -86,7 +86,7 @@ git clone https://github.com/erglo/wow-addon-utilities.git
   + :new: `:ClearUserWaypoint()`  
     Remove a previously set user waypoint.
 - :new: **worldmap.lua** (`ns.utils.worldmap`)
-  + Different `Enum.UIMapType` constants with the pattern: `LocalMapUtils.*_MAP_ID`
+  + Different `Enum.UIMapType` constants with the pattern: `ns.utils.handynotes.*_MAP_ID`
   + `:GetMapInfo(uiMapID)` &rarr; `mapInfo`: _UiMapDetails_  
     Return the map information for given map.
   + `:GetMapChildrenInfo(mapID, mapType, allDescendants)` &rarr; `mapChildrenInfos`: _UiMapDetails[]_  
