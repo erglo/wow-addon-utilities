@@ -39,6 +39,7 @@ utils.worldmap = LocalMapUtils
 
 local C_Map = C_Map
 local C_SuperTrack = C_SuperTrack
+local UiMapPoint = UiMapPoint
 
 ----- Constants ----------------------------------------------------------------
 
@@ -227,7 +228,7 @@ function LocalMapUtils:SetUserWaypointXY(uiMapID, posX, posY, setActive, chatNot
     if C_Map.CanSetUserWaypointOnMap(uiMapID) then
         local uiMapPoint = UiMapPoint.CreateFromCoordinates(uiMapID, posX, posY)
         C_Map.SetUserWaypoint(uiMapPoint)
-        local shouldSuperTrack = setActive or not C_SuperTrack.IsSuperTrackingUserWaypoint()
+        local shouldSuperTrack = setActive and setActive or not C_SuperTrack.IsSuperTrackingUserWaypoint()
 		C_SuperTrack.SetSuperTrackedUserWaypoint(shouldSuperTrack)
 		if shouldSuperTrack then
 			PlaySound(SOUNDKIT.UI_MAP_WAYPOINT_SUPER_TRACK_ON)
@@ -264,10 +265,11 @@ end
 
 --[[--> TODO -----
 
-local uiMapPoint = C_Map.GetUserWaypoint()
 local hyperlink = C_Map.GetUserWaypointHyperlink()
 local uiMapPoint = C_Map.GetUserWaypointFromHyperlink(hyperlink)
 local mapPosition = C_Map.GetUserWaypointPositionForMap(uiMapID)
+
+UiMapPoint.CreateFromVector2D(mapID, position, z)
 
 WorldMapFrame:TriggerEvent("SetAreaLabel", MAP_AREA_LABEL_TYPE.POI, self.name, self.description);
 WorldMapFrame:TriggerEvent("ClearAreaLabel", MAP_AREA_LABEL_TYPE.POI);
