@@ -246,7 +246,7 @@ function LocalMapUtils:SetUserWaypointXY(uiMapID, posX, posY, setActive, chatNot
 end
 
 -- Get the UiMapPoint of a previously set user waypoint.
----@return UiMapPoint|nil
+---@return UiMapPoint|nil mapPoint
 -- 
 function LocalMapUtils:GetUserWaypoint()
     if not C_Map.HasUserWaypoint() then return end

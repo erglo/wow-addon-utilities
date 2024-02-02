@@ -130,6 +130,8 @@ git clone https://github.com/erglo/wow-addon-utilities.git
     Check whether the given map is a continent.
   + `:SetUserWaypointXY(uiMapID, posX, posY, setActive, chatNotifyOnError)` &rarr; `mapPoint`: _UiMapPoint|nil_  
     Set a user waypoint on given map at given position.
+  + `:GetUserWaypoint()` &rarr; `mapPoint`: _UiMapPoint|nil_  
+    Get the UiMapPoint of a previously set user waypoint.
   + `:ClearUserWaypoint()`  
     Remove a previously set user waypoint.
 
