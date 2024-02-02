@@ -244,6 +244,15 @@ function LocalMapUtils:SetUserWaypointXY(uiMapID, posX, posY, setActive, chatNot
     end
 end
 
+-- Get the UiMapPoint of a previously set user waypoint.
+---@return UiMapPoint|nil
+-- 
+function LocalMapUtils:GetUserWaypoint()
+    if not C_Map.HasUserWaypoint() then return end
+
+    return C_Map.GetUserWaypoint()
+end
+
 -- Remove a previously set user waypoint.
 function LocalMapUtils:ClearUserWaypoint()
     if C_Map.HasUserWaypoint() then
@@ -260,6 +269,8 @@ local hyperlink = C_Map.GetUserWaypointHyperlink()
 local uiMapPoint = C_Map.GetUserWaypointFromHyperlink(hyperlink)
 local mapPosition = C_Map.GetUserWaypointPositionForMap(uiMapID)
 
+WorldMapFrame:TriggerEvent("SetAreaLabel", MAP_AREA_LABEL_TYPE.POI, self.name, self.description);
+WorldMapFrame:TriggerEvent("ClearAreaLabel", MAP_AREA_LABEL_TYPE.POI);
 
 -- Returns a map area/subzone name.  
 ---@param areaID number
