@@ -255,11 +255,11 @@ end
 
 -- Remove a previously set user waypoint.
 function LocalMapUtils:ClearUserWaypoint()
-    if C_Map.HasUserWaypoint() then
-        C_Map.ClearUserWaypoint()
-        C_SuperTrack.SetSuperTrackedUserWaypoint(false)
-        PlaySound(SOUNDKIT.UI_MAP_WAYPOINT_REMOVE)
-    end
+    if not C_Map.HasUserWaypoint() then return end
+
+    C_Map.ClearUserWaypoint()
+    C_SuperTrack.SetSuperTrackedUserWaypoint(false)
+    PlaySound(SOUNDKIT.UI_MAP_WAYPOINT_REMOVE)
 end
 
 --[[--> TODO -----
