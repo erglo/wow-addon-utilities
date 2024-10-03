@@ -66,8 +66,16 @@ LocalMapUtils.ARGUS_MAP_ID = 905
 LocalMapUtils.THE_MAELSTROM_MAP_ID = 948
 LocalMapUtils.THE_SHADOWLANDS_MAP_ID = 1550
 LocalMapUtils.DRAGON_ISLES_MAP_ID = 1978
+LocalMapUtils.KHAZ_ALGAR_MAP_ID = 2274
 
 -------------------------------------------------- Enum.UIMapType.Zone
+
+----- The War Within ----
+
+LocalMapUtils.RINGING_DEEPS_MAP_ID = 2214
+LocalMapUtils.HALLOWFALL_MAP_ID = 2215
+LocalMapUtils.ISLE_OF_DORN_MAP_ID = 2248
+LocalMapUtils.AZJ_KAHET_MAP_ID = 2255
 
 ----- Dragonflight -----
 
@@ -148,6 +156,44 @@ LocalMapUtils.SPIRES_OF_ARAK_MAP_ID = 542
 LocalMapUtils.GORGROND_MAP_ID = 543
 LocalMapUtils.NAGRAND_MAP_ID = 550
 LocalMapUtils.ASHRAN_MAP_ID = 588
+
+----- Others -----
+
+LocalMapUtils.ZUL_DRAK_MAP_ID = 121
+LocalMapUtils.VASHJIR_MAP_ID = 203
+LocalMapUtils.KELPTHAR_FOREST_MAP_ID = 201
+LocalMapUtils.ABYSSAL_DEPTHS_MAP_ID = 204
+LocalMapUtils.SHIMMERING_EXPANSE_MAP_ID = 205
+LocalMapUtils.RUINS_OF_GILNEAS_MAP_ID = 217
+LocalMapUtils.KRASARANG_WILDS_MAP_ID = 418
+LocalMapUtils.ISLE_OF_THUNDER_MAP_ID = 504
+-- LocalMapUtils.ORIBOS_MAP_ID = 1670
+
+LocalMapUtils.NAGRAND_MAP_ID = 107      -- Burning Crusade, Outland
+LocalMapUtils.NAGRAND_WOD_MAP_ID = 550  -- Warlords Of Draenor, Draenor         --> FIXME - Change this in 'utils/worldmap.lua'
+LocalMapUtils.SHOLAZAR_BASIN_MAP_ID = 119
+LocalMapUtils.GARRISON_ALLIANCE = 582
+LocalMapUtils.GARRISON_HORDE = 590
+
+LocalMapUtils.BLASTED_LANDS_MAP_ID = 17
+LocalMapUtils.DARKSHORE_MAP_ID = 62
+LocalMapUtils.FERALAS_MAP_ID = 69
+LocalMapUtils.AZSHARA_MAP_ID = 76
+LocalMapUtils.FELWOOD_MAP_ID = 77
+LocalMapUtils.TEROKKAR_FOREST_MAP_ID = 108
+LocalMapUtils.ICECROWN_MAP_ID = 118
+LocalMapUtils.MOUNT_HYJAL_MAP_ID = 198
+LocalMapUtils.SILITHUS_MAP_ID = 81
+LocalMapUtils.ULDUM_MAP_ID = 249        -- Cataclysm
+LocalMapUtils.ULDUM_BFA_MAP_ID = 1527   -- Battle for Azeroth
+LocalMapUtils.VALE_OF_ETERNAL_BLOSSOMS_MAP_ID = 390       -- Mists of Pandaria
+LocalMapUtils.VALE_OF_ETERNAL_BLOSSOMS_BFA_MAP_ID = 1530  -- Battle for Azeroth
+LocalMapUtils.STRANGLETHORN_MAP_ID = 224
+LocalMapUtils.NORTHERN_STRANGLETHORN_MAP_ID = 50
+LocalMapUtils.CAPE_OF_STRANGLETHORN_MAP_ID = 210
+LocalMapUtils.DALARAN_LEGION_MAP_ID = 627
+LocalMapUtils.TIRISFAL_GLADES_MAP_ID = 18
+LocalMapUtils.TIRISFAL_GLADES_BFA_MAP_ID = 2070
 
 --> TODO - Add more zones.
 
